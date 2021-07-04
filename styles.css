@@ -42,7 +42,7 @@ html, body {
 
 #title {
     /*Text*/
-    font-size: 850%;
+    font-size: 9rem;
     font-family: Bitter, serif;
     display: block;
 
@@ -54,7 +54,7 @@ html, body {
 
 .subtitle {
     /*Text Formatting*/
-    font-size: 190%;
+    font-size: 2rem;
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
 
