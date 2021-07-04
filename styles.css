@@ -30,6 +30,7 @@ html, body {
     animation-fill-mode: forwards;
     transition: 0.25s ease-in-out;
     color: #FFFFFF;
+    user-select: none;
 }
 
 #intro-sub-container:hover {
