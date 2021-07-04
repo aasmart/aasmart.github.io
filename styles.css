@@ -1,44 +1,64 @@
+@font-face {
+    font-family: 'Lato';
+    src: url("https://fonts.google.com/specimen/Lato");
+}
+
 body {
     background-color: #1F1E1D;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
-    height: 100%;
-    width: 100%;
-    resize: both;
+    margin: auto;
+    width: 75%;
 
-    display:flex;
-    justify-content:center;
+    text-align: center;
 }
 
 #title {
     /*Text*/
-    color: white;
+    color: #EEEEEE;
     font-family: "Lato", sans-serif;
     font-weight: bolder;
-    font-size: 10rem;
-
-    position: fixed;
+    font-size: 500%;
+    padding: 70px 0 70px;
     display: block;
 
     /*Animation*/
-    animation-name: title-in;
-    animation-duration: 1.0s;
+    animation: title-in 1s 0s, float-up 1s 0.5s;
     animation-fill-mode: forwards;
+}
+
+#title::after {
+    display: block;
+    content: "";
+    border-bottom: 4px solid #808080;
+    /*scaleX(0);*/
+    transform: scaleX(1);
+    transition: transform 1s ease-in-out 1s;
 }
 
 @keyframes title-in {
     from {
         opacity: 0;
-        top:5%
     }
 
     to {
         opacity: 1;
-        top:10%
+    }
+
+}
+
+@keyframes float-up {
+    from {
+        padding: 70px 0 70px;
+    }
+
+    to {
+        padding: 10px 0 0;
     }
 }
 
-@keyframes move-up {
+@keyframes magic-line {
+
 }
