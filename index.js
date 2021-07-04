@@ -7,6 +7,6 @@ window.onload = new function () {
     }
 
     function introClick() {
-        console.log("Test")
+
     }
 }
