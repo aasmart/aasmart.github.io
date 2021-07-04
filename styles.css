@@ -25,14 +25,22 @@ html, body {
     height: 100%;
 }
 
-.sub-container {
-    animation: float-up 1s 0.5s;
+#intro-sub-container {
+    animation: float-up .75s 0.5s;
     animation-fill-mode: forwards;
+    transition: 0.25s ease-in-out;
+    color: #FFFFFF;
+}
+
+#intro-sub-container:hover {
+    filter: brightness(80%);
+    transform: scale(1.025);
+    transition: filter .25s ease-in-out, transform .25s ease-in-out;
+    cursor: pointer;
 }
 
 #title {
     /*Text*/
-    color: #FFFFFF;
     font-size: 9vw;
     font-family: Bitter, serif;
     display: block;
@@ -45,7 +53,6 @@ html, body {
 
 .subtitle {
     /*Text Formatting*/
-    color: #FFFFFF;
     font-size: 2vw;
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
@@ -62,10 +69,10 @@ html, body {
 #title::after {
     display: block;
     content: "";
-    border-bottom: 6px solid #808080;
+    border-bottom: 5px solid #808080;
     transform: scaleX(0);
     transition: transform 1s ease-in-out;
-    animation: magic-line 1s 1.5s;
+    animation: magic-line .75s 1.65s;
     animation-fill-mode: forwards;
     border-radius: 100px;
 }
