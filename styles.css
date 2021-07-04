@@ -26,7 +26,7 @@ html, body {
 }
 
 #intro-sub-container {
-    animation: float-up .75s 0.5s;
+    animation: float-up .75s 0.75s;
     animation-fill-mode: forwards;
     transition: 0.25s ease-in-out;
     color: #FFFFFF;
@@ -34,7 +34,7 @@ html, body {
 }
 
 #intro-sub-container:hover {
-    filter: brightness(80%);
+    filter: brightness(95%);
     transform: scale(1.025);
     transition: filter .25s ease-in-out, transform .25s ease-in-out;
     cursor: pointer;
@@ -42,19 +42,19 @@ html, body {
 
 #title {
     /*Text*/
-    font-size: 9vw;
+    font-size: 850%;
     font-family: Bitter, serif;
     display: block;
 
     /*Animation*/
     animation: fade-in 1s 0s;
     animation-fill-mode: forwards;
-    margin: -5px 0;
+    margin: -7px 0;
 }
 
 .subtitle {
     /*Text Formatting*/
-    font-size: 2vw;
+    font-size: 190%;
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
 
