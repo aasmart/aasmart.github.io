@@ -4,41 +4,70 @@
 }
 
 body {
-    background-color: #1F1E1D;
-    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom right, #1F1E1D, #292826);
+    font-family: Lato_Thin, serif;
+}
+
+html, body {
+    height: 100%;
+    margin: auto;
 }
 
 .container {
-    margin: auto;
-    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    text-align: center;
+    height: 100%;
+}
+
+.sub-container {
+    animation: float-up 1s 0.5s;
+    animation-fill-mode: forwards;
 }
 
 #title {
     /*Text*/
     color: #EEEEEE;
-    font-family: "Lato", sans-serif;
+    font-family: "Lato_Thin", sans-serif;
     font-weight: bolder;
-    font-size: 10em;
-    padding: 70px 0 70px;
-    display: block;
+    font-size: 9vw;
+    display: inline;
 
     /*Animation*/
-    animation: title-in 1s 0s, float-up 1s 0.5s;
+    animation: fade-in 1s 0s;
     animation-fill-mode: forwards;
+    margin: 5px 0;
+}
+
+.subtitle {
+    /*Text Formatting*/
+    color: #EEEEEE;
+    font-family: "Lato_Thin", sans-serif;
+    font-weight: 500;
+    font-size: 2vw;
+
+    /*Animation Stuff*/
+    opacity: 0;
+    animation: fade-in 1s 2s;
+    animation-fill-mode: forwards;
+
+    text-align: center;
+
 }
 
 #title::after {
     display: block;
     content: "";
     border-bottom: 4px solid #808080;
-    /*scaleX(0);*/
-    transform: scaleX(1);
-    transition: transform 1s ease-in-out 1s;
+    transform: scaleX(0);
+    transition: transform 1s ease-in-out;
+    animation: magic-line 1s 1.5s;
+    animation-fill-mode: forwards;
 }
 
-@keyframes title-in {
+
+@keyframes fade-in {
     from {
         opacity: 0;
     }
@@ -46,19 +75,24 @@ body {
     to {
         opacity: 1;
     }
-
 }
 
 @keyframes float-up {
     from {
-        padding: 70px 0 70px;
+        margin: 0 0 0;
     }
 
     to {
-        padding: 10px 0 0;
+        margin: 0 0 75px;
     }
 }
 
 @keyframes magic-line {
+    from {
+        transform: scaleX(0);
+    }
 
+    to {
+        transform: scaleX(1);
+    }
 }
