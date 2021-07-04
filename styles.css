@@ -44,6 +44,7 @@ html, body {
     /*Text*/
     font-family: Bitter, serif;
     display: block;
+    font-size: 3em;
 
     /*Animation*/
     animation: fade-in 1s 0s;
@@ -55,6 +56,7 @@ html, body {
     /*Text Formatting*/
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: .75em;
 
     /*Animation Stuff*/
     opacity: 0;
@@ -112,6 +114,17 @@ html, body {
 
     .subtitle {
         font-size: 1em;
+    }
+}
+
+
+@media only screen and (max-width: 560px) {
+    #title {
+        font-size: 3em;
+    }
+
+    .subtitle {
+        font-size: .75em;
     }
 }
 
