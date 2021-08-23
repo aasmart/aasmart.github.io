@@ -11,18 +11,19 @@ window.onload = () => {
             fadeInCount++
             let sheet = document.styleSheets[0]
             let rules = sheet.cssRules || sheet.rules;
-            // rules[2].style.overflowY = "visible"
+            rules[2].style.overflowY = "visible"
         }
     })
 
     document.addEventListener("scroll",() => {
-        const scrollHeight = document.documentElement.scrollHeight
+        const scrollHeight = (document.documentElement.scrollHeight - window.innerHeight);
+        console.log(scrollHeight)
         const maxPercent = 300;
-        const opacity =  1 - (document.documentElement.scrollTop / maxPercent);
-        const height = Math.min(document.documentElement.scrollTop / maxPercent, 1);
+        const opacity =  1 - (document.documentElement.scrollTop / Math.min(maxPercent, scrollHeight));
+        const height = Math.min(document.documentElement.scrollTop / Math.min(maxPercent, scrollHeight), 1);
 
         let introContainer = document.getElementById("intro-sub-container")
-        introContainer.style.transform = `translateY(-${(height * 270) + 37}px) scale(${Math.max(opacity, .75)})`
+        introContainer.style.transform = `translateY(-${(height * 270) + 37}px) scale(${Math.max(opacity, .75)})`;
 
         let subtitle = document.getElementById("subtitle")
         subtitle.style.animationFillMode = "none"
