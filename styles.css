@@ -10,7 +10,7 @@
 
 html, body {
     height: 100%;
-    margin: auto;
+    margin: auto auto 1000px;
     background-color: #292826;
     /*background-image: linear-gradient(to bottom right, #1F1E1D, #292826);*/
     overflow-y: hidden;
@@ -28,7 +28,17 @@ html, body {
     position: fixed;
     color: #FFFFFF;
     user-select: none;
-    animation: float-up ease .75s 0.75s
+    animation: float-up ease .5s 0.25s
+}
+
+#header {
+    height: 19vh;
+    width: 100%;
+    background-color: #063E94;
+    box-shadow: 0 5px 15px black;
+    position: fixed;
+    top:0;
+    opacity: 0;
 }
 
 #title {
@@ -38,7 +48,7 @@ html, body {
     font-size: 3em;
 
     /*Animation*/
-    animation: fade-in 1s 0s;
+    animation: fade-in .5s 0s;
     animation-fill-mode: forwards;
     margin: -7px 0;
 }
@@ -46,9 +56,9 @@ html, body {
 #title::after {
     display: block;
     content: "";
-    border-bottom: 5px solid #808080;
+    border-bottom: 5px solid #A8A49D;
     transform: scaleX(0);
-    animation: border-line-out .75s 1.65s;
+    animation: border-line-out .5s .85s;
     animation-fill-mode: forwards;
     border-radius: 100px;
 }
@@ -61,7 +71,7 @@ html, body {
 
     /*Animation Stuff*/
     opacity: 0;
-    animation: fade-in 1s 2s;
+    animation: fade-in .5s 1.10s;
     animation-fill-mode: forwards;
 
     text-align: center;
