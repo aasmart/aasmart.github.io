@@ -8,7 +8,7 @@ window.onload = () => {
 
     document.addEventListener("animationend", (event) => {
         if(event.animationName === "float-up")
-            introContainer.style.transform = "translate(0, -37px)";
+            introContainer.style.transform = "translate(0, -4.32vh)";
         if(event.animationName === "fade-in")
             fadeInCount++;
         if(fadeInCount === 2) {
@@ -31,7 +31,7 @@ window.onload = () => {
 
         // Styling for the intro container
         let introContainer = document.getElementById("intro-sub-container");
-        introContainer.style.transform = `translateY(-${(height * Math.round(window.innerHeight * .335)) + 37}px) scale(${Math.max(opacity, .65)})`;
+        introContainer.style.transform = `translateY(-${(height * 32.7) + 4.32}vh) scale(${Math.max(opacity, .65)})`;
 
         // Styling for the subtitle
         let subtitle = document.getElementById("subtitle");
