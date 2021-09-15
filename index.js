@@ -2,20 +2,33 @@ window.onbeforeunload = () => {
     window.scrollTo(0, 0)
 }
 
+let sheet = document.styleSheets[0];
+let rules = sheet.cssRules || sheet.rules;
+
 window.onload = () => {
     let fadeInCount = 0;
+    // Style elements
     let introContainer = document.getElementById("intro-sub-container");
+    let header = document.getElementById("header");
+    let subtitle = document.getElementById("subtitle");
+
+    // Ideal widths
+    let windowWidth = window.innerWidth;
+    let idealWidth = 1707;
+
+    let introContainerTop = introContainer.getBoundingClientRect().top - 35;
+    console.log(introContainerTop);
 
     document.addEventListener("animationend", (event) => {
-        if(event.animationName === "float-up")
-            introContainer.style.transform = "translate(0, -4.32vh)";
+        if(event.animationName === "float-up") {
+            introContainer.style.transform = "translate(0, -35px)";
+            console.log(introContainer.getBoundingClientRect());
+        }
         if(event.animationName === "fade-in")
             fadeInCount++;
         if(fadeInCount === 2) {
             fadeInCount++;
-            let sheet = document.styleSheets[0];
-            let rules = sheet.cssRules || sheet.rules;
-            rules[2].style.overflowY = "visible";
+            rules[3].style.overflowY = "visible";
         }
     })
 
@@ -23,19 +36,42 @@ window.onload = () => {
         const scrollHeight = (document.documentElement.scrollHeight - window.innerHeight);
         const maxPercent = 300;
         const opacity =  1 - (document.documentElement.scrollTop / Math.min(maxPercent, scrollHeight));
-        const height = Math.min(document.documentElement.scrollTop / Math.min(maxPercent, scrollHeight), 1);
 
         // Styling for the header
-        let header = document.getElementById("header");
         header.style.opacity = (1-opacity >= .7 ? ((1-opacity-.7)*10) : 0).toString();
 
         // Styling for the intro container
-        let introContainer = document.getElementById("intro-sub-container");
-        introContainer.style.transform = `translateY(-${(height * 32.7) + 4.32}vh) scale(${Math.max(opacity, .65)})`;
+        introContainer.style.transform = `scale(${Math.max(opacity, .65)})`;
+
+        // Handle scrolling
+        introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
 
         // Styling for the subtitle
-        let subtitle = document.getElementById("subtitle");
         subtitle.style.animationFillMode = "none";
         subtitle.style.opacity = opacity.toString();
     });
+
+    window.addEventListener("resize", () => {
+        windowWidth = window.innerWidth;
+        introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
+        headerBannerHeight(header, windowWidth, idealWidth)
+    });
+}
+
+function introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth) {
+    // Handle scrolling
+    let containerMax = window.getComputedStyle(introContainer).getPropertyValue("--container-top-distance");
+
+    containerMax -= (1-(windowWidth / idealWidth)) * 60;
+
+    if((-window.pageYOffset) + introContainerTop > -containerMax)
+        introContainer.style.top = `${-window.pageYOffset + introContainerTop}px`;
+    else
+        introContainer.style.top = `${-containerMax}px`;
+}
+
+function headerBannerHeight(header, windowWidth, idealWidth) {
+    let titleSize = (144 * (windowWidth / idealWidth));
+    console.log(titleSize)
+    header.style.height = `${Math.min(titleSize * 1.71, 160)}px`;
 }

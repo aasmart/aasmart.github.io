@@ -8,9 +8,14 @@
     src: url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
 }
 
-html, body {
+:root {
+    --current-device-width: 100vw;
+    --ideal-viewport-width: 1707;
+}
+
+html, body, main {
     height: 100%;
-    margin: auto auto 1000px;
+    margin: auto;
     background-color: #292826;
     /*background-image: linear-gradient(to bottom right, #1F1E1D, #292826);*/
     overflow-y: hidden;
@@ -20,32 +25,39 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     height: 100%;
 }
 
 #intro-sub-container {
-    position: fixed;
+    --container-top-distance: 30;
     color: #FFFFFF;
     user-select: none;
-    animation: float-up ease .5s 0.25s
+    animation: float-up ease .5s 0.25s;
+
+    position: fixed;
+    height: auto;
+    z-index: 100;
 }
 
 #header {
-    height: 19vh;
+    height: 160px;
     width: 100%;
     background-color: #063E94;
     box-shadow: 0 5px 15px black;
     position: fixed;
     top:0;
     opacity: 0;
+    /*z-index: 1;*/
 }
 
 #title {
+    --ideal-font-size: 144;
     /*Text*/
     font-family: Bitter, serif;
     display: block;
-    font-size: 3em;
+    font-size: calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width)));
 
     /*Animation*/
     animation: fade-in .5s 0s;
@@ -64,10 +76,12 @@ html, body {
 }
 
 #subtitle {
+    --ideal-font-size: 32;
+
     /*Text Formatting*/
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: .75em;
+    font-size: calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width)));
 
     /*Animation Stuff*/
     opacity: 0;
@@ -75,6 +89,17 @@ html, body {
     animation-fill-mode: forwards;
 
     text-align: center;
+}
+
+#content {
+    height: 100px;
+    width: 80%;
+    top: 100%;
+    background-color: red;
+    position: relative;
+    margin-bottom: 100px;
+
+    /*z-index: -1;*/
 }
 
 @keyframes fade-in {
@@ -103,7 +128,7 @@ html, body {
     }
 
     to {
-        transform: translate(0, -4.32vh);
+        transform: translate(0, -35px);
     }
 }
 
@@ -123,78 +148,5 @@ html, body {
     }
     to {
         translate(0, -65%);
-    }
-}
-
-/*Screen adjustment stuff
-================================================================*/
-@media only screen and (min-width: 1920px) {
-    #title {
-        font-size: 12rem;
-    }
-
-    #subtitle {
-        font-size: 2.33rem;
-    }
-}
-
-@media only screen and (max-width: 1920px) {
-    #title {
-        font-size: 9rem;
-    }
-
-    #subtitle {
-        font-size: 2rem;
-    }
-}
-
-@media only screen and (max-width: 1440px) {
-    #title {
-        font-size: 6em;
-    }
-
-    #subtitle {
-        font-size: 1.67em;
-    }
-}
-
-@media only screen and (max-width: 1440px) {
-    #title {
-        font-size: 7em;
-    }
-
-    #subtitle {
-        font-size: 1.33em;
-    }
-}
-
-@media only screen and (max-width: 1080px) {
-    #title {
-        font-size: 6em;
-    }
-
-    #subtitle {
-        font-size: 1.125em;
-    }
-}
-
-@media only screen and (max-width: 780px) {
-    #title {
-        font-size: 4.5em;
-    }
-
-    #subtitle {
-        font-size: 1em;
-    }
-}
-
-
-@media only screen and (max-width: 560px) {
-    #title {
-        font-size: 3.5em;
-    }
-
-    #subtitle {
-        font-size: .85em;
     }
 }
