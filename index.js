@@ -4,6 +4,7 @@ window.onbeforeunload = () => {
 
 let sheet = document.styleSheets[0];
 let rules = sheet.cssRules || sheet.rules;
+let introContainerTop;
 
 window.onload = () => {
     let fadeInCount = 0;
@@ -16,7 +17,7 @@ window.onload = () => {
     let windowWidth = window.innerWidth;
     let idealWidth = 1707;
 
-    let introContainerTop = introContainer.getBoundingClientRect().top;
+    introContainerTop = introContainer.getBoundingClientRect().top;
 
     document.addEventListener("animationend", (event) => {
         if(event.animationName === "float-up")
@@ -58,7 +59,7 @@ window.onload = () => {
     });
 
     window.addEventListener("orientationchange", () => {
-        alert("This is a test sorry")
+        introContainerTop = introContainer.getBoundingClientRect().top;
         windowWidth = window.innerWidth;
         introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
         headerBannerHeight(header, windowWidth, idealWidth)
