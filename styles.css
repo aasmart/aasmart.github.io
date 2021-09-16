@@ -58,7 +58,7 @@ html, body, main {
     /*Text*/
     font-family: Bitter, serif;
     display: block;
-    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))), 81px);
+    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))), 63px);
 
     /*Animation*/
     animation: fade-in .5s 0s;
@@ -82,7 +82,7 @@ html, body, main {
     /*Text Formatting*/
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))),18px);
+    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))),14px);
 
     /*Animation Stuff*/
     opacity: 0;
