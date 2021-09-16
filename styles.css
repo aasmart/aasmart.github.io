@@ -11,6 +11,7 @@
 :root {
     --current-device-width: 100vw;
     --ideal-viewport-width: 1707;
+    --minimum-viewport-width: 780;
 }
 
 html, body, main {
@@ -57,7 +58,7 @@ html, body, main {
     /*Text*/
     font-family: Bitter, serif;
     display: block;
-    font-size: calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width)));
+    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))), 81px);
 
     /*Animation*/
     animation: fade-in .5s 0s;
@@ -81,7 +82,7 @@ html, body, main {
     /*Text Formatting*/
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width)));
+    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))),18px);
 
     /*Animation Stuff*/
     opacity: 0;
