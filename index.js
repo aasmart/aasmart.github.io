@@ -50,7 +50,14 @@ window.onload = () => {
         subtitle.style.opacity = opacity.toString();
     });
 
+    // Resize & Orientation Change Events
     window.addEventListener("resize", () => {
+        windowWidth = window.innerWidth;
+        introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
+        headerBannerHeight(header, windowWidth, idealWidth)
+    });
+
+    window.addEventListener("orientationchange", () => {
         windowWidth = window.innerWidth;
         introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
         headerBannerHeight(header, windowWidth, idealWidth)
