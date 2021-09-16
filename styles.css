@@ -142,12 +142,3 @@ html, body, main {
         transform: scaleX(1);
     }
 }
-
-@keyframes transition-title {
-    from {
-        translate(0, -37px);
-    }
-    to {
-        translate(0, -65%);
-    }
-}

@@ -16,14 +16,11 @@ window.onload = () => {
     let windowWidth = window.innerWidth;
     let idealWidth = 1707;
 
-    let introContainerTop = introContainer.getBoundingClientRect().top - 35;
-    console.log(introContainerTop);
+    let introContainerTop = introContainer.getBoundingClientRect().top;
 
     document.addEventListener("animationend", (event) => {
-        if(event.animationName === "float-up") {
+        if(event.animationName === "float-up")
             introContainer.style.transform = "translate(0, -35px)";
-            console.log(introContainer.getBoundingClientRect());
-        }
         if(event.animationName === "fade-in")
             fadeInCount++;
         if(fadeInCount === 2) {
@@ -34,6 +31,8 @@ window.onload = () => {
 
     document.addEventListener("scroll",() => {
         const scrollHeight = (document.documentElement.scrollHeight - window.innerHeight);
+        if(scrollHeight <= 0)
+            return;
         const maxPercent = 300;
         const opacity =  1 - (document.documentElement.scrollTop / Math.min(maxPercent, scrollHeight));
 
@@ -61,17 +60,17 @@ window.onload = () => {
 function introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth) {
     // Handle scrolling
     let containerMax = window.getComputedStyle(introContainer).getPropertyValue("--container-top-distance");
-
     containerMax -= (1-(windowWidth / idealWidth)) * 60;
 
     if((-window.pageYOffset) + introContainerTop > -containerMax)
         introContainer.style.top = `${-window.pageYOffset + introContainerTop}px`;
-    else
+    else {
         introContainer.style.top = `${-containerMax}px`;
+        console.log("...")
+    }
 }
 
 function headerBannerHeight(header, windowWidth, idealWidth) {
     let titleSize = (144 * (windowWidth / idealWidth));
-    console.log(titleSize)
     header.style.height = `${Math.min(titleSize * 1.71, 160)}px`;
 }
