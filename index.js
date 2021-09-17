@@ -63,7 +63,7 @@ window.onload = () => {
     window.addEventListener("orientationchange", () => {
         windowWidth = screen.innerWidth;
         introContainerTop = windowWidth * containerTopRatio;
-        alert(`Test ${introContainerTop}`)
+        alert(`Test 1.1 ${screen.innerWidth}`)
         introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
         headerBannerHeight(header, windowWidth, idealWidth)
     });
