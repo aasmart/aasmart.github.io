@@ -61,7 +61,7 @@ window.onload = () => {
     });
 
     window.addEventListener("orientationchange", () => {
-        windowWidth = screen.innerWidth;
+        windowWidth = window.innerWidth;
         introContainerTop = windowWidth * containerTopRatio;
         alert(`Test 1.2 ${window.innerWidth} ${introContainerTop}`)
         introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
