@@ -16,11 +16,13 @@ window.onload = () => {
 
     // Ideal widths
     let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
     let idealWidth = 1707;
 
-    containerTopRatio = introContainer.getBoundingClientRect().top / windowWidth;
-    introContainerTop = windowWidth * containerTopRatio;
+    containerTopRatio = introContainer.getBoundingClientRect().top / windowHeight;
+    introContainerTop = windowHeight * containerTopRatio -35;
 
+    headerBannerHeight(header, windowWidth, idealWidth)
     document.addEventListener("animationend", (event) => {
         if(event.animationName === "float-up")
             introContainer.style.transform = "translate(0, -35px)";
@@ -36,8 +38,7 @@ window.onload = () => {
         const scrollHeight = (document.documentElement.scrollHeight - window.innerHeight);
         if(scrollHeight <= 0)
             return;
-        const maxPercent = 300;
-        const opacity =  1 - (document.documentElement.scrollTop / Math.min(maxPercent, scrollHeight));
+        const opacity =  1 - (document.documentElement.scrollTop / Math.min(introContainerTop, scrollHeight));
 
         // Styling for the header
         header.style.opacity = (1-opacity >= .7 ? ((1-opacity-.7)*10) : 0).toString();
@@ -55,15 +56,19 @@ window.onload = () => {
 
     // Resize & Orientation Change Events
     window.addEventListener("resize", () => {
+        windowHeight = window.innerHeight;
         windowWidth = window.innerWidth;
+
+        introContainerTop = windowHeight * containerTopRatio - 35;
         introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
         headerBannerHeight(header, windowWidth, idealWidth)
     });
 
     window.addEventListener("orientationchange", () => {
+        windowHeight = window.innerHeight;
         windowWidth = window.innerWidth;
-        introContainerTop = windowWidth * containerTopRatio;
-        alert(`Test 1.2 ${window.innerWidth} ${introContainerTop}`)
+
+        introContainerTop = windowHeight * containerTopRatio - 35;
         introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth);
         headerBannerHeight(header, windowWidth, idealWidth)
     });
@@ -72,7 +77,7 @@ window.onload = () => {
 function introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth) {
     // Handle scrolling
     let containerMax = window.getComputedStyle(introContainer).getPropertyValue("--container-top-distance");
-    containerMax -= (1-(windowWidth / idealWidth)) * 60;
+    containerMax -= (1-(windowWidth / idealWidth)) * 30 + (windowWidth / idealWidth * -5);
 
     if((-window.pageYOffset) + introContainerTop > -containerMax)
         introContainer.style.top = `${-window.pageYOffset + introContainerTop}px`;
@@ -84,5 +89,5 @@ function introContainerScrolling(introContainer, introContainerTop, windowWidth,
 
 function headerBannerHeight(header, windowWidth, idealWidth) {
     let titleSize = (144 * (windowWidth / idealWidth));
-    header.style.height = `${Math.min(titleSize * 1.71, 160)}px`;
+    header.style.height = `${Math.max(titleSize, 70)}px`;
 }

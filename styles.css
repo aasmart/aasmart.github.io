@@ -43,14 +43,14 @@ html, body, main {
 }
 
 #header {
-    height: 160px;
+    height: 144px;
     width: 100%;
     background-color: #063E94;
     box-shadow: 0 5px 15px black;
     position: fixed;
     top:0;
     opacity: 0;
-    /*z-index: 1;*/
+    z-index: 99;
 }
 
 #title {
@@ -93,14 +93,12 @@ html, body, main {
 }
 
 #content {
-    height: 100px;
+    height: 1000px;
     width: 80%;
     top: 100%;
-    background-color: red;
+    background-color: black;
     position: relative;
-    margin-bottom: 100px;
-
-    /*z-index: -1;*/
+    bottom: 100px;
 }
 
 @keyframes fade-in {
