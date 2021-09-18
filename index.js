@@ -83,7 +83,6 @@ function introContainerScrolling(introContainer, introContainerTop, windowWidth,
         introContainer.style.top = `${-window.pageYOffset + introContainerTop}px`;
     else {
         introContainer.style.top = `${-containerMax}px`;
-        console.log("...")
     }
 }
 
