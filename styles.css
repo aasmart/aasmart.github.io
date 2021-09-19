@@ -18,12 +18,13 @@ html, body, main {
     height: 100%;
     margin: auto;
     background-color: #292826;
-    /*background-image: linear-gradient(to bottom right, #1F1E1D, #292826);*/
     overflow-y: hidden;
+    bottom: 100px;
 }
 
 .container {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -93,11 +94,13 @@ html, body, main {
 }
 
 #content {
-    height: 1000px;
-    width: 80%;
-    top: 100%;
-    background-color: black;
     position: relative;
+    height: 1000px;
+    width: 90%;
+    top: 100%;
+    background-color: #33322F;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px black;
     bottom: 100px;
 }
 
