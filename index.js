@@ -16,7 +16,7 @@ window.onload = () => {
 
     // Ideal widths
     let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
+    let windowHeight = window.outerHeight;
     let idealWidth = 1707;
 
     containerTopRatio = introContainer.getBoundingClientRect().top / windowHeight;
@@ -35,7 +35,7 @@ window.onload = () => {
     })
 
     document.addEventListener("scroll",() => {
-        const scrollHeight = (document.documentElement.scrollHeight - window.innerHeight);
+        const scrollHeight = (document.documentElement.scrollHeight - window.outerHeight);
         if(scrollHeight <= 0)
             return;
         const opacity =  1 - (document.documentElement.scrollTop / Math.min(introContainerTop, scrollHeight));
@@ -56,7 +56,7 @@ window.onload = () => {
 
     // Resize & Orientation Change Events
     window.addEventListener("resize", () => {
-        windowHeight = window.innerHeight;
+        windowHeight = window.outerHeight;
         windowWidth = window.innerWidth;
 
         introContainerTop = windowHeight * containerTopRatio - 35;
@@ -65,7 +65,7 @@ window.onload = () => {
     });
 
     window.addEventListener("orientationchange", () => {
-        windowHeight = window.innerHeight;
+        windowHeight = window.outerHeight;
         windowWidth = window.innerWidth;
 
         introContainerTop = windowHeight * containerTopRatio - 35;
@@ -77,7 +77,7 @@ window.onload = () => {
 function introContainerScrolling(introContainer, introContainerTop, windowWidth, idealWidth) {
     // Handle scrolling
     let containerMax = window.getComputedStyle(introContainer).getPropertyValue("--container-top-distance");
-    containerMax -= (1-(windowWidth / idealWidth)) * 30 + (windowWidth / idealWidth * -5);
+    containerMax -= (1-(windowWidth / idealWidth)) * 30 - (windowWidth / idealWidth) * 7;
 
     if((-window.pageYOffset) + introContainerTop > -containerMax)
         introContainer.style.top = `${-window.pageYOffset + introContainerTop}px`;
