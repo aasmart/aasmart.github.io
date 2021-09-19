@@ -37,6 +37,7 @@ html, body, main {
     color: #FFFFFF;
     user-select: none;
     animation: float-up ease .5s 0.25s;
+    animation-fill-mode: forwards;
 
     position: fixed;
     height: auto;
@@ -48,8 +49,13 @@ html, body, main {
     width: 100%;
     background-color: #063E94;
     box-shadow: 0 5px 15px black;
-    position: fixed;
     top:0;
+
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     opacity: 0;
     z-index: 99;
 }
@@ -101,7 +107,7 @@ html, body, main {
     background-color: #33322F;
     border-radius: 20px;
     box-shadow: 0 5px 5px black;
-    bottom: 100px;
+    margin-bottom: 100px;
 }
 
 @keyframes fade-in {
