@@ -111,10 +111,11 @@ html, body, main {
 
 #scroll-down path {
     fill: #A8A49D;
-    opacity: 0.75;
+    opacity: 0;
     transition-duration: 0.2s;
     transition-property: fill, opacity;
     transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+    animation: scroll-fade-in .5s .5s forwards;
 }
 
 #scroll-down:hover path {
@@ -146,6 +147,16 @@ nav {
 
     to {
         opacity: 1;
+    }
+}
+
+@keyframes scroll-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: .75;
     }
 }
 
