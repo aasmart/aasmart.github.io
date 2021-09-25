@@ -24,7 +24,6 @@ html, body, main {
 
 .container {
     display: flex;
-    position: relative;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -33,11 +32,8 @@ html, body, main {
 }
 
 #intro-sub-container {
-    --container-top-distance: 30;
     color: #FFFFFF;
     user-select: none;
-    animation: float-up ease .5s 0.25s;
-    animation-fill-mode: forwards;
 
     position: fixed;
     height: auto;
@@ -45,19 +41,21 @@ html, body, main {
 }
 
 #header {
-    height: 144px;
+    height: 120px;
     width: 100%;
     background-color: #063E94;
     box-shadow: 0 5px 15px black;
-    top:0;
+    top:-120px;
+    opacity: 0;
 
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    opacity: 0;
     z-index: 99;
+
+    animation: fade-in-from-top .5s .45s forwards;
 }
 
 #title {
@@ -68,7 +66,7 @@ html, body, main {
     font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))), 63px);
 
     /*Animation*/
-    animation: fade-in .5s 0s;
+    animation: fade-in 1s 0s;
     animation-fill-mode: forwards;
     margin: -7px 0;
 }
@@ -78,7 +76,7 @@ html, body, main {
     content: "";
     border-bottom: 5px solid #A8A49D;
     transform: scaleX(0);
-    animation: border-line-out .5s .85s;
+    animation: border-line-out .5s .35s;
     animation-fill-mode: forwards;
     border-radius: 100px;
 }
@@ -93,21 +91,52 @@ html, body, main {
 
     /*Animation Stuff*/
     opacity: 0;
-    animation: fade-in .5s 1.10s;
+    animation: fade-in .5s .6s;
     animation-fill-mode: forwards;
 
     text-align: center;
 }
 
-#content {
-    position: relative;
-    height: 1000px;
-    width: 90%;
-    top: 100%;
-    background-color: #33322F;
-    border-radius: 20px;
-    box-shadow: 0 5px 5px black;
-    margin-bottom: 100px;
+#scroll-down {
+    bottom: 2.5em;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+#scroll-down svg {
+    height: 3em;
+    width: 3em;
+}
+
+#scroll-down path {
+    fill: #A8A49D;
+    opacity: 0.75;
+    transition-duration: 0.2s;
+    transition-property: fill, opacity;
+    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+#scroll-down:hover path {
+    fill: #4D94FF;
+    opacity: 0.95;
+}
+
+nav {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav-title {
+    --ideal-font-size: 100;
+    /*Text*/
+    color: #FFFFFF;
+    font-family: Bitter, serif;
+    display: block;
+    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))), 63px);
 }
 
 @keyframes fade-in {
@@ -130,16 +159,6 @@ html, body, main {
     }
 }
 
-@keyframes float-up {
-    from {
-        transform: translate(0, 0);
-    }
-
-    to {
-        transform: translate(0, -35px);
-    }
-}
-
 @keyframes border-line-out {
     from {
         transform: scaleX(0);
@@ -147,5 +166,29 @@ html, body, main {
 
     to {
         transform: scaleX(1);
+    }
+}
+
+@keyframes explode {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(5);
+    }
+}
+
+@keyframes fade-in-from-top {
+    from {
+        top: -120px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
     }
 }

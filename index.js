@@ -6,17 +6,15 @@ const sheet = document.styleSheets[0];
 const rules = sheet.cssRules || sheet.rules;
 
 window.onload = () => {
-    let fadeInCount = 0;
     // Style elements
     let introContainer = document.getElementById("intro-sub-container");
+    let scrollDown = document.getElementById("scroll-down");
 
-    document.addEventListener("animationend", (event) => {
-        if(event.animationName === "float-up")
-        if(event.animationName === "fade-in")
-            fadeInCount++;
-        if(fadeInCount === 2) {
-            fadeInCount++;
-            rules[3].style.overflowY = "visible";
-        }
-    })
+    scrollDown.addEventListener("click", () => {
+        introContainer.style.animation = "explode .5s forwards";
+        scrollDown.style.animation = "fade-out .5s forwards";
+        setTimeout(() => {
+            window.location = "home.html";
+        }, 350);
+    });
 }
