@@ -6,19 +6,7 @@ const sheet = document.styleSheets[0];
 const rules = sheet.cssRules || sheet.rules;
 
 window.onload = () => {
-    if(window.location.href.includes("index.html")) {
-        // Style elements
-        let introContainer = document.getElementById("intro-sub-container");
-        let scrollDown = document.getElementById("home-page");
-
-        scrollDown.addEventListener("click", () => {
-            introContainer.style.animation = "shrink .5s forwards";
-            scrollDown.style.animation = "fade-out .5s forwards";
-            setTimeout(() => {
-                window.location.href = "home.html";
-            }, 350);
-        });
-    } else {
+    if(window.location.href.includes("home.html")) {
         const pictures = ["Images/dog1.jpg", "Images/dog2.jpg", "Images/dog3.jpg"];
         let imageNum = 1;
         let isTop = true;
@@ -43,6 +31,18 @@ window.onload = () => {
         })
 
         cycleDogPicture();
+    } else {
+        // Style elements
+        let introContainer = document.getElementById("intro-sub-container");
+        let scrollDown = document.getElementById("home-page");
+
+        scrollDown.addEventListener("click", () => {
+            introContainer.style.animation = "shrink .5s forwards";
+            scrollDown.style.animation = "fade-out .5s forwards";
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 350);
+        });
     }
 }
 
