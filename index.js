@@ -41,9 +41,9 @@ window.onload = () => {
                 isTop = !isTop;
             }
         })
-    }
 
-    cycleDogPicture();
+        cycleDogPicture();
+    }
 }
 
 function cycleDogPicture() {
