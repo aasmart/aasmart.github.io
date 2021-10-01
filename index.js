@@ -52,6 +52,6 @@ function cycleDogPicture() {
 
     if(dogTop.length > 0)
         dogTop[0].style.animation = "fade-out-delay 10s 4.5s infinite alternate";
-    if(dogBottom[0].length > 0)
-        dogBottom.style.animation = "fade-in-delay 10s 4.5s infinite alternate";
+    if(dogBottom.length > 0)
+        dogBottom[0].style.animation = "fade-in-delay 10s 4.5s infinite alternate";
 }
