@@ -47,9 +47,9 @@ window.onload = () => {
 }
 
 function cycleDogPicture() {
-    let dogBottom = document.getElementsByClassName("dog-bottom");
-    let dogTop = document.getElementsByClassName("dog-top");
+    let dogBottom = document.getElementsByClassName("dog-bottom")[0];
+    let dogTop = document.getElementsByClassName("dog-top")[0];
 
-    dogTop[0].style.animation = "fade-out-delay 10s 4.5s infinite alternate";
-    dogBottom[0].style.animation = "fade-in-delay 10s 4.5s infinite alternate";
+    dogTop.style.animation = "fade-out-delay 10s 4.5s infinite alternate";
+    dogBottom.style.animation = "fade-in-delay 10s 4.5s infinite alternate";
 }
