@@ -50,6 +50,8 @@ function cycleDogPicture() {
     let dogBottom = document.getElementsByClassName("dog-bottom")[0];
     let dogTop = document.getElementsByClassName("dog-top")[0];
 
-    dogTop.style.animation = "fade-out-delay 10s 4.5s infinite alternate";
-    dogBottom.style.animation = "fade-in-delay 10s 4.5s infinite alternate";
+    if(dogTop != null)
+        dogTop.style.animation = "fade-out-delay 10s 4.5s infinite alternate";
+    if(dogBottom != null)
+        dogBottom.style.animation = "fade-in-delay 10s 4.5s infinite alternate";
 }
