@@ -47,11 +47,11 @@ window.onload = () => {
 }
 
 function cycleDogPicture() {
-    let dogBottom = document.getElementsByClassName("dog-bottom")[0];
-    let dogTop = document.getElementsByClassName("dog-top")[0];
+    let dogBottom = document.getElementsByClassName("dog-bottom");
+    let dogTop = document.getElementsByClassName("dog-top");
 
-    if(dogTop != null)
-        dogTop.style.animation = "fade-out-delay 10s 4.5s infinite alternate";
-    if(dogBottom != null)
+    if(dogTop.length > 0)
+        dogTop[0].style.animation = "fade-out-delay 10s 4.5s infinite alternate";
+    if(dogBottom[0].length > 0)
         dogBottom.style.animation = "fade-in-delay 10s 4.5s infinite alternate";
 }
