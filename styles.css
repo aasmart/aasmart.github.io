@@ -344,7 +344,9 @@ nav {
         height: 100px;
         top: 0;
     }
+}
 
+@media (orientation: portrait) {
     .content-box {
         height: 750px;
         flex-direction: column;
