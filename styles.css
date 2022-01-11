@@ -10,8 +10,10 @@
 
 :root {
     --current-device-width: 100vw;
+    --current-device-height: 100vh;
     --ideal-viewport-width: 1707;
     --minimum-viewport-width: 780;
+    --ideal-viewport-height: 837;
 }
 
 html, body, main {
@@ -46,7 +48,12 @@ html, body, main {
     /*Text*/
     font-family: Bitter, serif;
     display: block;
-    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))), 63px);
+    font-size: max(
+            calc(
+                    var(--ideal-font-size) * ((var(--current-device-width) / var(--ideal-viewport-width) *.75 +
+                    var(--current-device-height) / var(--ideal-viewport-height) * .25))
+            )
+            ,56px);
 
     /*Animation*/
     animation: fade-in 1s 0s;
@@ -70,7 +77,12 @@ html, body, main {
     /*Text Formatting*/
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: max(calc(var(--ideal-font-size) * (var(--current-device-width) / var(--ideal-viewport-width))),14px);
+    font-size: max(
+            calc(
+                    var(--ideal-font-size) * ((var(--current-device-width) / var(--ideal-viewport-width) * .75 +
+                    var(--current-device-height) / var(--ideal-viewport-height) * .25))
+            )
+            ,14px);
 
     /*Animation Stuff*/
     opacity: 0;
@@ -81,15 +93,17 @@ html, body, main {
 }
 
 #home-page {
-    bottom: 4rem;
+    align-content: center;
+    /*bottom: 4vh;*/
     left: 50%;
-    position: absolute;
+    position: fixed;
     transform: translateX(-50%);
+    padding-top: 15vh;
 }
 
 #home-page svg {
-    height: 4em;
-    width: 4em;
+    height: 10vh;
+    width: 10vw;
 }
 
 #home-page path {
@@ -142,7 +156,7 @@ nav {
 .content-box {
     background: #333230;
     width: 90vw;
-    height: 575px;
+    height: 70vh;
     border-radius: 16px;
     position: relative;
     opacity: 0;
@@ -161,6 +175,7 @@ nav {
 #dog-div {
     width: 50%;
     height: 75%;
+    aspect-ratio: auto 1;
     position: relative;
     margin: 0 0 0 5%;
 }

@@ -39,9 +39,7 @@ window.onload = () => {
         scrollDown.addEventListener("click", () => {
             introContainer.style.animation = "shrink .5s forwards";
             scrollDown.style.animation = "fade-out .5s forwards";
-            setTimeout(() => {
-                window.location.href = "home.html";
-            }, 350);
+            window.location.href = "home.html";
         });
     }
 }
