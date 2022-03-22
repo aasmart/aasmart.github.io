@@ -169,7 +169,8 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 10em auto 1em;
+    margin: auto;
+    top: 4vh;
 }
 
 #dog-div {
@@ -367,6 +368,7 @@ nav {
         flex-direction: column;
         justify-content: normal;
         align-items: center;
+        top: 0
     }
 
     #dog-div {
