@@ -134,7 +134,7 @@ html, body, main {
 
     z-index: 99;
 
-    animation: fade-in-from-top .5s .4s forwards;
+    animation: fade-in-from-top .5s 0s forwards;
 }
 
 nav {
@@ -162,7 +162,7 @@ nav {
     border: #4A4942 3px solid;
     box-shadow: 0 5px 5px black;
 
-    animation: content-box-appear .75s .75s forwards;
+    animation: content-box-appear .75s .35s forwards;
     z-index: 1;
 
     display: flex;
