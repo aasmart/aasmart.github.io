@@ -3,11 +3,11 @@ window.onbeforeunload = () => {
 }
 
 const sheet = document.styleSheets[0];
-const rules = sheet.cssRules || sheet.rules;
+const rules = sheet.cssRules;
 
 window.onload = () => {
     if(window.location.href.includes("home.html")) {
-        const pictures = ["Images/dog1.jpg", "Images/dog2.jpg", "Images/dog3.jpg"];
+        /*const pictures = ["Images/dog1.jpg", "Images/dog2.jpg", "Images/dog3.jpg"];
         let imageNum = 1;
         let isTop = true;
         window.addEventListener("animationiteration", (event) => {
@@ -30,7 +30,7 @@ window.onload = () => {
             }
         })
 
-        cycleDogPicture();
+        cycleDogPicture();*/
     } else {
         // Style elements
         let introContainer = document.getElementById("intro-sub-container");
@@ -44,6 +44,7 @@ window.onload = () => {
     }
 }
 
+/*
 function cycleDogPicture() {
     let dogBottom = document.getElementsByClassName("dog-bottom");
     let dogTop = document.getElementsByClassName("dog-top");
@@ -52,4 +53,4 @@ function cycleDogPicture() {
         dogTop[0].style.animation = "fade-out-delay 10s 4.5s infinite alternate";
     if(dogBottom.length > 0)
         dogBottom[0].style.animation = "fade-in-delay 10s 4.5s infinite alternate";
-}
+}*/

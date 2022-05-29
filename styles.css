@@ -20,7 +20,6 @@ html, body, main {
     height: 100%;
     margin: auto;
     background-color: #292826;
-    overflow: auto;
 }
 
 .container {
@@ -170,7 +169,6 @@ nav {
     flex-direction: row;
     align-items: center;
     margin: auto;
-    top: 4vh;
 }
 
 #dog-div {
@@ -222,16 +220,8 @@ nav {
     color: #FFFFFF;
     font-weight: 200;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     margin: 0 3%;
-}
-
-#footer-wave {
-    position: fixed;
-    opacity: 0;
-    animation: fade-in .75s .5s forwards;
-    bottom: 0;
-    z-index: 1;
 }
 
 /*Animations*/
@@ -339,13 +329,12 @@ nav {
 @keyframes content-box-appear {
     from {
         opacity: 0;
-        margin: 10em auto 1em;
+        transform: translateY(40%);
     }
 
     to {
         opacity: 1;
-        margin: 8em auto 3em;
-        /*bottom: 10%;*/
+        transform: translateY(32%);
     }
 }
 
@@ -360,6 +349,11 @@ nav {
         height: 100px;
         top: 0;
     }
+
+    #home-page svg {
+        width: 12vw;
+        height: 12vh;
+    }
 }
 
 @media (orientation: portrait) {
@@ -368,7 +362,7 @@ nav {
         flex-direction: column;
         justify-content: normal;
         align-items: center;
-        top: 0
+        margin: auto;
     }
 
     #dog-div {
