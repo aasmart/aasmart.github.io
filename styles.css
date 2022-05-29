@@ -145,12 +145,40 @@ nav {
     align-items: center;
 }
 
+nav div {
+    width: auto;
+    height: 0.5em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+nav div:hover {
+    -webkit-filter: brightness(80%);
+    filter: brightness(80%);
+}
+
 #nav-title {
     color: #FFFFFF;
     font-family: Bitter, serif;
     display: block;
     font-size: 85px;
 }
+
+nav div img {
+    margin: 0 0.75em 0 0.75em;
+}
+
+#left {
+    transform: rotate(180deg);
+}
+
 
 .content-box {
     background: #333230;
@@ -336,6 +364,26 @@ nav {
     to {
         opacity: 1;
         transform: translateY(32%);
+    }
+}
+
+@keyframes nav-slide-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes nav-slide-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
     }
 }
 

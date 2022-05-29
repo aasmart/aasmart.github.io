@@ -31,6 +31,20 @@ window.onload = () => {
         })
 
         cycleDogPicture();*/
+
+        /*let navDiv = document.getElementById("header").childNodes.item(1).firstChild.nextSibling;
+        let leftArrow = document.getElementById("left");
+
+        let hasClicked = false;
+        navDiv.addEventListener("click", () => {
+            if(!hasClicked) {
+                leftArrow.style.animation = "fade-out .5s both"
+                navDiv.style.animation = "nav-slide-left .5s both";
+            } else if (hasClicked) {
+                leftArrow = "nav-slide-left .5s both";
+                navDiv.style.animation = "";
+            }
+        });*/
     } else {
         // Style elements
         let introContainer = document.getElementById("intro-sub-container");
@@ -41,6 +55,7 @@ window.onload = () => {
             scrollDown.style.animation = "fade-out .5s forwards";
             window.location.href = "home.html";
         });
+
     }
 }
 
