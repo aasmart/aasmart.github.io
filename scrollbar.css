@@ -10,3 +10,16 @@ body::-webkit-scrollbar-thumb {
     background-clip: padding-box;
     border-radius: 100px;
 }
+
+.about-me::-webkit-scrollbar {
+    background-color: #33322F;
+    width: 14px;
+    z-index: 100;
+}
+
+.about-me::-webkit-scrollbar-thumb {
+    background-color: #565656;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 100px;
+}
